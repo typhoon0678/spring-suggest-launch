@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -38,7 +39,7 @@ public class RestaurantService {
         Restaurant restaurant = restaurantRepository.findById(id).orElseThrow(() ->
                 new IllegalArgumentException("not found: " + id));
 
-        restaurant.update(request.getName(), request.getLat(), request.getLon());
+        restaurant.update(request.getName(), request.getLat(), request.getLon(), LocalDateTime.now());
 
         return restaurant;
     }

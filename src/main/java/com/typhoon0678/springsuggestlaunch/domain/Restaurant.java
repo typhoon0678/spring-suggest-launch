@@ -37,15 +37,18 @@ public class Restaurant {
     private LocalDateTime updatedAt;
 
     @Builder
-    public Restaurant(String name, Double lat, Double lon) {
+    public Restaurant(String name, Double lat, Double lon, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.name = name;
         this.lat = lat;
         this.lon = lon;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
-    public void update(String name, Double lat, Double lon) {
+    public void update(String name, Double lat, Double lon, LocalDateTime updatedAt) {
         this.name = name;
         this.lat = lat;
         this.lon = lon;
+        this.updatedAt = updatedAt;
     }
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -35,5 +36,17 @@ public class RestaurantViewController {
         model.addAttribute("restaurant", new RestaurantViewResponse(restaurant));
 
         return "restaurant";
+    }
+
+    @GetMapping("/new-restaurant")
+    public String newRestaurant(@RequestParam(required = false) Long id, Model model) {
+        if (id == null) {
+            model.addAttribute("restaurant", new RestaurantViewResponse());
+        } else {
+            Restaurant restaurant = restaurantService.findById(id);
+            model.addAttribute("restaurant", new RestaurantViewResponse(restaurant));
+        }
+
+        return "newRestaurant";
     }
 }

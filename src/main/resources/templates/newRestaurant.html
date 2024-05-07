@@ -11,7 +11,7 @@
 </head>
 <body>
 <header class="text-center">
-    <h1>식당 정보</h1>
+    <h1>식당 추가</h1>
     <h4>Welcome</h4>
 </header>
 <div class="container">
@@ -19,18 +19,16 @@
         <div class="col-lg-8">
             <article>
                 <input type="hidden" id="restaurant-id" th:value="${restaurant.id}">
-                <header>
-                    <h1 th:text="${restaurant.name}"></h1>
-                    <h1 th:text="${restaurant.lat}"></h1>
-                    <h1 th:text="${restaurant.lon}"></h1>
-                    <div th:text="|Posted on ${#temporals.format(restaurant.createdAt, 'yyyy-MM-dd HH:mm')}|"></div>
-                </header>
-                <button type="button" id="modify-btn"
-                        th:onclick="|location.href='@{/new-restaurant?id={restaurantId}(restaurantId=${restaurant.id})}'|"
+                <section>
+                    <textarea class="form-control h-25" rows="10" placeholder="내용" id="restaurant-name" th:text="${restaurant.name}"></textarea>
+                    <textarea class="form-control h-25" rows="1" placeholder="위도" id="restaurant-lat" th:text="${restaurant.lat}"></textarea>
+                    <textarea class="form-control h-25" rows="1" placeholder="경도" id="restaurant-lon" th:text="${restaurant.lon}"></textarea>
+                </section>
+                <button th:if="${restaurant.id} != null" type="button" id="modify-btn"
                         class="btn btn-primary">수정
                 </button>
-                <button type="button" id="delete-btn"
-                        class="btn btn-secondary btn-sm">삭제
+                <button th:if="${restaurant.id} == null" type="button" id="create-btn"
+                        class="btn btn-primary">등록
                 </button>
             </article>
         </div>
