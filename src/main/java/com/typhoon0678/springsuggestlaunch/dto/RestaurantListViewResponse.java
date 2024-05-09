@@ -10,11 +10,13 @@ public class RestaurantListViewResponse {
     private final String name;
     private final Double lat;
     private final Double lon;
+    private final Long categoryId;
 
     public RestaurantListViewResponse(Restaurant restaurant) {
         this.id = restaurant.getId();
         this.name = restaurant.getName();
         this.lat = restaurant.getLat();
         this.lon = restaurant.getLon();
+        this.categoryId = restaurant.getCategory().getId();
     }
 }

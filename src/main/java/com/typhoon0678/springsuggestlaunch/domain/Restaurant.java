@@ -28,6 +28,10 @@ public class Restaurant {
     @Column(name = "lon")
     private Double lon;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
     @CreatedDate
     @Column(name = "created_at")
     private LocalDateTime createdAt;
@@ -37,18 +41,20 @@ public class Restaurant {
     private LocalDateTime updatedAt;
 
     @Builder
-    public Restaurant(String name, Double lat, Double lon, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Restaurant(String name, Double lat, Double lon, Category category, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.name = name;
         this.lat = lat;
         this.lon = lon;
+        this.category = category;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
-    public void update(String name, Double lat, Double lon, LocalDateTime updatedAt) {
+    public void update(String name, Double lat, Category category, Double lon, LocalDateTime updatedAt) {
         this.name = name;
         this.lat = lat;
         this.lon = lon;
+        this.category = category;
         this.updatedAt = updatedAt;
     }
 }

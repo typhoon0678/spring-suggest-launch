@@ -5,15 +5,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class UpdateRestaurantRequest {
+public class AddCategoryRequest {
+
     private String name;
-    private Double lat;
-    private Double lon;
-    private Category category;
-    private LocalDateTime updatedAt;
+
+    public Category toEntity() {
+        return Category.builder()
+                .name(name)
+                .build();
+    }
 }

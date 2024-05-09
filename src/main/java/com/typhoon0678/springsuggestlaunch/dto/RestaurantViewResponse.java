@@ -1,5 +1,6 @@
 package com.typhoon0678.springsuggestlaunch.dto;
 
+import com.typhoon0678.springsuggestlaunch.domain.Category;
 import com.typhoon0678.springsuggestlaunch.domain.Restaurant;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,7 @@ public class RestaurantViewResponse {
     private String name;
     private Double lat;
     private Double lon;
+    private Long categoryId;
     private LocalDateTime createdAt;
 
     public RestaurantViewResponse(Restaurant restaurant) {
@@ -21,6 +23,7 @@ public class RestaurantViewResponse {
         this.name = restaurant.getName();
         this.lat = restaurant.getLat();
         this.lon = restaurant.getLon();
+        this.categoryId = restaurant.getCategory().getId();
         this.createdAt = restaurant.getCreatedAt();
     }
 }

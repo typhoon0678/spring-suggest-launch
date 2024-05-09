@@ -22,9 +22,9 @@
 <ul class="btn_set m-4 d-flex flex-row">
     <li class="on">
         <button class="m-auto btn btn-outline-info"
-                th:each="item : ${restaurants}"
+                th:each="item : ${categories}"
                 th:text="${item.name}"
-                th:attr="data-filter=${item.name}"></button>
+                th:attr="data-filter=${'.' + item.id}">categoryName</button>
     </li>
 </ul>
 
@@ -55,7 +55,7 @@
 <script th:inline="javascript">
     var map = new kakao.maps.Map(document.getElementById("map"), {
         // 지도를 표시할 div
-        center: new kakao.maps.LatLng(37.572467, 126.990367), // 지도의 중심좌표
+        center: new kakao.maps.LatLng(37.572398, 126.990414), // 지도의 중심좌표
         level: 4, // 지도의 확대 레벨
     });
 
@@ -96,12 +96,12 @@
     $.each(restaurantList, (idx, el) => {
         // Isotope
         tempHtml += `
-                <li class="list_item ${el.name}">
-                    <div class="item_box">
-                        <img src=${el.name} height=100px width=150px />
+                <li class="list_item ${el.categoryId}">
+                    <a href="restaurants/${el.id}" class="item_box">
+                        <img src="https://st.depositphotos.com/2274151/4841/i/450/depositphotos_48410095-stock-photo-sample-blue-square-grungy-stamp.jpg" height=100px width=150px />
                         <h5>${el.name}</h5>
                         ${el.name}
-                    </div>
+                    </a>
                 </li>`;
     });
 
@@ -134,8 +134,8 @@
         });
 
         // filter items on button click
-        $(".btn_set").on("click", "li", function () {
-            var filterValue = $(this).children().attr("data-filter");
+        $(".btn_set").on("click", "li button", function () {
+            const filterValue = $(this).attr("data-filter");
             $(".list_item_wrap").isotope({filter: filterValue});
             $(".btn_set li").removeClass("on");
             $(this).addClass("on");
@@ -148,9 +148,7 @@
     const markerfunc = (filter) => {
         let markers = [];
         $.each(restaurantList, (idx, el) => {
-            console.log(filter);
-            console.log("el.name : ", el.name);
-            if (filter === "*" || "." + el.name === filter) {
+            if (filter === "*" || "." + el.categoryId === filter) {
                 let marker = new kakao.maps.Marker({
                     position: new kakao.maps.LatLng(el.lat, el.lon),
                 });

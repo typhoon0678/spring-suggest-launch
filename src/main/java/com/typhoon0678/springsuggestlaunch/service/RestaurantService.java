@@ -39,7 +39,7 @@ public class RestaurantService {
         Restaurant restaurant = restaurantRepository.findById(id).orElseThrow(() ->
                 new IllegalArgumentException("not found: " + id));
 
-        restaurant.update(request.getName(), request.getLat(), request.getLon(), LocalDateTime.now());
+        restaurant.update(request.getName(), request.getLat(), request.getCategory(), request.getLon(), LocalDateTime.now());
 
         return restaurant;
     }
