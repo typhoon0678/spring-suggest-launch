@@ -8,18 +8,31 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
+    <link href="/css/newRestaurant.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div class="container" th:replace="/header :: header"></div>
+<div class="container" th:replace="~{/header :: header}"></div>
 <div class="container">
     <div class="row">
         <div class="col-lg-8">
             <article>
                 <input type="hidden" id="restaurant-id" th:value="${restaurant.id}">
                 <section>
-                    <textarea class="form-control h-25" rows="10" placeholder="내용" id="restaurant-name" th:text="${restaurant.name}"></textarea>
-                    <textarea class="form-control h-25" rows="1" placeholder="위도" id="restaurant-lat" th:text="${restaurant.lat}"></textarea>
-                    <textarea class="form-control h-25" rows="1" placeholder="경도" id="restaurant-lon" th:text="${restaurant.lon}"></textarea>
+                    <textarea class="form-control h-25" rows="10" placeholder="내용"
+                                  id="restaurant-name" th:text="${restaurant.name}"></textarea>
+                    <textarea class="form-control h-25" rows="1" placeholder="위도"
+                              id="restaurant-lat"
+                              th:text="${restaurant.lat}"></textarea>
+                    <textarea class="form-control h-25" rows="1" placeholder="경도"
+                              id="restaurant-lon"
+                              th:text="${restaurant.lon}"></textarea>
+                    <select id="restaurant-categoryId" th:value="${restaurant.categoryId}" class="form-select" required>
+                        <option value="" disabled selected>식당 종류를 선택하세요</option>
+                        <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"
+                        th:selected="${category.id == restaurant.categoryId}">
+                            option
+                        </option>
+                    </select>
                 </section>
                 <button th:if="${restaurant.id} != null" type="button" id="modify-btn"
                         class="btn btn-primary">수정

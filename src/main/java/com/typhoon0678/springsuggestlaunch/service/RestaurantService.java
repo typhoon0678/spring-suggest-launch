@@ -1,8 +1,10 @@
 package com.typhoon0678.springsuggestlaunch.service;
 
+import com.typhoon0678.springsuggestlaunch.domain.Category;
 import com.typhoon0678.springsuggestlaunch.domain.Restaurant;
 import com.typhoon0678.springsuggestlaunch.dto.AddRestaurantRequest;
 import com.typhoon0678.springsuggestlaunch.dto.UpdateRestaurantRequest;
+import com.typhoon0678.springsuggestlaunch.repository.CategoryRepository;
 import com.typhoon0678.springsuggestlaunch.repository.RestaurantRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,9 +18,13 @@ import java.util.List;
 public class RestaurantService {
 
     private final RestaurantRepository restaurantRepository;
+    private final CategoryRepository categoryRepository;
 
     public Restaurant save(AddRestaurantRequest request) {
-        return restaurantRepository.save(request.toEntity());
+        Category category = categoryRepository.findById(request.getCategoryId()).orElseThrow(() ->
+                new IllegalArgumentException("Category not found"));
+
+        return restaurantRepository.save(request.toEntity(category));
     }
 
     public List<Restaurant> findAll() {
@@ -39,7 +45,10 @@ public class RestaurantService {
         Restaurant restaurant = restaurantRepository.findById(id).orElseThrow(() ->
                 new IllegalArgumentException("not found: " + id));
 
-        restaurant.update(request.getName(), request.getLat(), request.getCategory(), request.getLon(), LocalDateTime.now());
+        Category category = categoryRepository.findById(request.getCategoryId()).orElseThrow(() ->
+                new IllegalArgumentException("not found Category: " + request.getCategoryId()));
+
+        restaurant.update(request.getName(), request.getLat(), category, request.getLon(), LocalDateTime.now());
 
         return restaurant;
     }

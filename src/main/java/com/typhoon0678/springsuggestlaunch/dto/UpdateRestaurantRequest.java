@@ -1,6 +1,5 @@
 package com.typhoon0678.springsuggestlaunch.dto;
 
-import com.typhoon0678.springsuggestlaunch.domain.Category;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,6 +13,6 @@ public class UpdateRestaurantRequest {
     private String name;
     private Double lat;
     private Double lon;
-    private Category category;
+    private Long categoryId;
     private LocalDateTime updatedAt;
 }

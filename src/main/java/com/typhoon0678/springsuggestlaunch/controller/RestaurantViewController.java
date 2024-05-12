@@ -1,7 +1,9 @@
 package com.typhoon0678.springsuggestlaunch.controller;
 
+import com.typhoon0678.springsuggestlaunch.domain.Category;
 import com.typhoon0678.springsuggestlaunch.domain.Restaurant;
 import com.typhoon0678.springsuggestlaunch.dto.CategoryListViewResponse;
+import com.typhoon0678.springsuggestlaunch.dto.CategoryViewResponse;
 import com.typhoon0678.springsuggestlaunch.dto.RestaurantListViewResponse;
 import com.typhoon0678.springsuggestlaunch.dto.RestaurantViewResponse;
 import com.typhoon0678.springsuggestlaunch.service.CategoryService;
@@ -21,6 +23,11 @@ public class RestaurantViewController {
 
     private final RestaurantService restaurantService;
     private final CategoryService categoryService;
+
+    @GetMapping("/")
+    public String index() {
+        return "redirect:/restaurants";
+    }
 
     @GetMapping("/restaurants")
     public String getRestaurants(Model model) {
@@ -56,6 +63,12 @@ public class RestaurantViewController {
             Restaurant restaurant = restaurantService.findById(id);
             model.addAttribute("restaurant", new RestaurantViewResponse(restaurant));
         }
+
+        List<CategoryViewResponse> categories = categoryService.findAll().stream()
+                .map(CategoryViewResponse::new)
+                .toList();
+
+        model.addAttribute("categories", categories);
 
         return "newRestaurant";
     }

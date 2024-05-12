@@ -29,6 +29,7 @@ if (deleteButton) {
                 name: document.getElementById('restaurant-name').value,
                 lat: document.getElementById('restaurant-lat').value,
                 lon: document.getElementById('restaurant-lon').value,
+                categoryId: document.getElementById('restaurant-categoryId').value,
             })
         })
             .then(() => {
@@ -47,6 +48,7 @@ if (deleteButton) {
                 name: document.getElementById('restaurant-name').value,
                 lat: document.getElementById('restaurant-lat').value,
                 lon: document.getElementById('restaurant-lon').value,
+                categoryId: document.getElementById('restaurant-categoryId').value,
             })
         })
             .then(() => {

@@ -1,6 +1,5 @@
 package com.typhoon0678.springsuggestlaunch.dto;
 
-import com.typhoon0678.springsuggestlaunch.domain.Category;
 import com.typhoon0678.springsuggestlaunch.domain.Restaurant;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
