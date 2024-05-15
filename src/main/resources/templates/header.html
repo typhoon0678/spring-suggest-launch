@@ -1,4 +1,5 @@
-<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <a href="/restaurants" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
         <span class="fs-4 ms-4">점메추</span>
     </a>
@@ -12,7 +13,17 @@
     </ul>
 
     <div class="col-md-3 text-end me-4">
-        <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='/login'">로그인</button>
-        <button type="button" class="btn btn-primary" onclick="location.href='/signup'">회원가입</button>
+        <button sec:authorize="!isAuthenticated()" type="button" class="btn btn-outline-primary me-2"
+                onclick="location.href='/login'">로그인
+        </button>
+        <button sec:authorize="!isAuthenticated()" type="button" class="btn btn-primary"
+                onclick="location.href='/signup'">회원가입
+        </button>
+
+        <div sec:authentication="name" sec:authorize="isAuthenticated()" class="text-primary-emphasis me-2">username
+        </div>
+        <button sec:authorize="isAuthenticated()" type="button" class="btn btn-primary"
+                onclick="location.href='/logout'">로그아웃
+        </button>
     </div>
 </header>
