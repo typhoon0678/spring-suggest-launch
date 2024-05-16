@@ -23,4 +23,9 @@ public class UserService {
                 .createdAt(LocalDateTime.now())
                 .build()).getId();
     }
+
+    public User findById(Long id) {
+        return userRepository.findById(id).orElseThrow(() ->
+                new IllegalStateException("User with id " + id + " not found"));
+    }
 }
