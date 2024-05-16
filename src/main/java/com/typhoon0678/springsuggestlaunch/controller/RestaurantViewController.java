@@ -1,11 +1,10 @@
 package com.typhoon0678.springsuggestlaunch.controller;
 
-import com.typhoon0678.springsuggestlaunch.domain.Category;
 import com.typhoon0678.springsuggestlaunch.domain.Restaurant;
-import com.typhoon0678.springsuggestlaunch.dto.CategoryListViewResponse;
-import com.typhoon0678.springsuggestlaunch.dto.CategoryViewResponse;
-import com.typhoon0678.springsuggestlaunch.dto.RestaurantListViewResponse;
-import com.typhoon0678.springsuggestlaunch.dto.RestaurantViewResponse;
+import com.typhoon0678.springsuggestlaunch.dto.category.CategoryListViewResponse;
+import com.typhoon0678.springsuggestlaunch.dto.category.CategoryViewResponse;
+import com.typhoon0678.springsuggestlaunch.dto.restaurant.RestaurantListViewResponse;
+import com.typhoon0678.springsuggestlaunch.dto.restaurant.RestaurantViewResponse;
 import com.typhoon0678.springsuggestlaunch.service.CategoryService;
 import com.typhoon0678.springsuggestlaunch.service.RestaurantService;
 import lombok.RequiredArgsConstructor;

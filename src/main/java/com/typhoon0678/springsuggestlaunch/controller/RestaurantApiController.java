@@ -1,9 +1,9 @@
 package com.typhoon0678.springsuggestlaunch.controller;
 
 import com.typhoon0678.springsuggestlaunch.domain.Restaurant;
-import com.typhoon0678.springsuggestlaunch.dto.AddRestaurantRequest;
-import com.typhoon0678.springsuggestlaunch.dto.RestaurantResponse;
-import com.typhoon0678.springsuggestlaunch.dto.UpdateRestaurantRequest;
+import com.typhoon0678.springsuggestlaunch.dto.restaurant.AddRestaurantRequest;
+import com.typhoon0678.springsuggestlaunch.dto.restaurant.RestaurantResponse;
+import com.typhoon0678.springsuggestlaunch.dto.restaurant.UpdateRestaurantRequest;
 import com.typhoon0678.springsuggestlaunch.service.RestaurantService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

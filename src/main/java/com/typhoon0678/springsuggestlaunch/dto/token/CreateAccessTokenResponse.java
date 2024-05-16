@@ -1,4 +1,4 @@
-package com.typhoon0678.springsuggestlaunch.dto;
+package com.typhoon0678.springsuggestlaunch.dto.token;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,7 +1,7 @@
 package com.typhoon0678.springsuggestlaunch.controller;
 
-import com.typhoon0678.springsuggestlaunch.dto.CreateAccessTokenRequest;
-import com.typhoon0678.springsuggestlaunch.dto.CreateAccessTokenResponse;
+import com.typhoon0678.springsuggestlaunch.dto.token.CreateAccessTokenRequest;
+import com.typhoon0678.springsuggestlaunch.dto.token.CreateAccessTokenResponse;
 import com.typhoon0678.springsuggestlaunch.service.TokenService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -35,7 +35,7 @@ public class TokenProvider {
                 .setIssuer(jwtProperties.getIssuer())
                 .setIssuedAt(now)
                 .setExpiration(expiry)
-                .setSubject(user.getUsername())
+                .setSubject(user.getEmail())
                 .claim("id", user.getId())
                 .signWith(SignatureAlgorithm.HS256, jwtProperties.getSecretKey())
                 .compact();
@@ -64,15 +64,15 @@ public class TokenProvider {
         );
     }
 
+    public Long getUserId(String token) {
+        Claims claims = getClaims(token);
+        return claims.get("id", Long.class);
+    }
+
     private Claims getClaims(String token) {
         return Jwts.parser()
                 .setSigningKey(jwtProperties.getSecretKey())
                 .parseClaimsJws(token)
                 .getBody();
-    }
-
-    public Long getUserId(String token) {
-        Claims claims = getClaims(token);
-        return claims.get("id", Long.class);
     }
 }

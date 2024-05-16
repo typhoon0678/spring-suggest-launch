@@ -1,4 +1,4 @@
-package com.typhoon0678.springsuggestlaunch.dto;
+package com.typhoon0678.springsuggestlaunch.dto.category;
 
 import com.typhoon0678.springsuggestlaunch.domain.Category;
 import lombok.AllArgsConstructor;

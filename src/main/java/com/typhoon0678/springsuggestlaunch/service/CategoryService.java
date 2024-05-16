@@ -1,8 +1,8 @@
 package com.typhoon0678.springsuggestlaunch.service;
 
 import com.typhoon0678.springsuggestlaunch.domain.Category;
-import com.typhoon0678.springsuggestlaunch.dto.AddCategoryRequest;
-import com.typhoon0678.springsuggestlaunch.dto.UpdateCategoryRequest;
+import com.typhoon0678.springsuggestlaunch.dto.category.AddCategoryRequest;
+import com.typhoon0678.springsuggestlaunch.dto.category.UpdateCategoryRequest;
 import com.typhoon0678.springsuggestlaunch.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -20,7 +20,7 @@
                 onclick="location.href='/signup'">회원가입
         </button>
 
-        <div sec:authentication="name" sec:authorize="isAuthenticated()" class="text-primary-emphasis me-2">username
+        <div sec:authentication="name" sec:authorize="isAuthenticated()" class="text-primary-emphasis me-2">email
         </div>
         <button sec:authorize="isAuthenticated()" type="button" class="btn btn-primary"
                 onclick="location.href='/logout'">로그아웃

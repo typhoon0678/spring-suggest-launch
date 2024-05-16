@@ -1,9 +1,9 @@
 package com.typhoon0678.springsuggestlaunch.controller;
 
 import com.typhoon0678.springsuggestlaunch.domain.Category;
-import com.typhoon0678.springsuggestlaunch.dto.AddCategoryRequest;
-import com.typhoon0678.springsuggestlaunch.dto.CategoryResponse;
-import com.typhoon0678.springsuggestlaunch.dto.UpdateCategoryRequest;
+import com.typhoon0678.springsuggestlaunch.dto.category.AddCategoryRequest;
+import com.typhoon0678.springsuggestlaunch.dto.category.CategoryResponse;
+import com.typhoon0678.springsuggestlaunch.dto.category.UpdateCategoryRequest;
 import com.typhoon0678.springsuggestlaunch.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

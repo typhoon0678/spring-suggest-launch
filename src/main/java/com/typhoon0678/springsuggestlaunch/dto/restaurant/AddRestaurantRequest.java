@@ -1,4 +1,4 @@
-package com.typhoon0678.springsuggestlaunch.dto;
+package com.typhoon0678.springsuggestlaunch.dto.restaurant;
 
 import com.typhoon0678.springsuggestlaunch.domain.Category;
 import com.typhoon0678.springsuggestlaunch.domain.Restaurant;

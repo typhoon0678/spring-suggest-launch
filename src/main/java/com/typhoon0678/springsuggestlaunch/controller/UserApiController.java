@@ -1,6 +1,6 @@
 package com.typhoon0678.springsuggestlaunch.controller;
 
-import com.typhoon0678.springsuggestlaunch.dto.AddUserRequest;
+import com.typhoon0678.springsuggestlaunch.dto.user.AddUserRequest;
 
 import com.typhoon0678.springsuggestlaunch.service.UserService;
 import lombok.RequiredArgsConstructor;
