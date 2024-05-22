@@ -36,7 +36,7 @@ public class WebSecurityConfig {
                                         "/restaurants",
                                         "/css/**",
                                         "/js/**").permitAll()
-                                .requestMatchers(toH2Console()).permitAll()
+//                                .requestMatchers(toH2Console()).permitAll()
                                 .anyRequest().authenticated())
                 .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin))
                 .formLogin((formLogin) ->
