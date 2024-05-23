@@ -11,7 +11,7 @@
     <link href="/css/login.css" rel="stylesheet">
 </head>
 <body class="text-center">
-<div class="container" th:replace="~{/header :: header}"></div>
+<div class="container" th:replace="header"></div>
 <main class="form-signin w-100 pt-5 m-auto">
     <form th:action="@{/user}" method="POST">
         <h1 class="h3 mb-3 font-weight-normal">회원가입</h1>
